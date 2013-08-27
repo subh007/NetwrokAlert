@@ -11,6 +11,8 @@
 #import "ViewController.h"
 
 @implementation AppDelegate
+@synthesize window = _window;
+@synthesize navCtrl = _navCtrl;
 
 - (void)dealloc
 {

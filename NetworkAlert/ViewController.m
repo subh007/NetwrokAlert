@@ -15,6 +15,7 @@
 @end
 
 @implementation ViewController
+@synthesize networkAvailLabel = _networkAvailLabel;
 
 - (void)dealloc {
     [_networkAvailLabel release];
