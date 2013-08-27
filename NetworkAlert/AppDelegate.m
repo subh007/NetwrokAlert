@@ -26,6 +26,8 @@
     ViewController *vc = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
     self.navCtrl = [[UINavigationController alloc]initWithRootViewController:vc];
     
+    // supply the navigation ctrl instance to the ALAlertBannerMgr
+    // otherwise we can't see the alert notification on the UI.
     [ALAlertBannerManager sharedManager].navCtrl = self.navCtrl;
     
     self.window.rootViewController = self.navCtrl;

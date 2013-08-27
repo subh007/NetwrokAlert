@@ -325,47 +325,41 @@
 #pragma mark - notification Handler
 - (void) reachabilityChanged:(NSNotification *)note
 {
-	Reachability* curReach = [note object];
-	NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
-    
-    NetworkStatus netStatus = [curReach currentReachabilityStatus];
-    //BOOL connectionRequired = [curReach connectionRequired];
-    
-    ALAlertBannerPosition position;
-    ALAlertBannerStyle randomStyle;
-    
-    switch (netStatus)
-    {
-        case NotReachable:
+    // show the notficaiton only when the AlAlertBannerMgr
+    //  has the instance of navigation controller.
+    if (_navCtrl) {
+        Reachability* curReach = [note object];
+        NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+        
+        NetworkStatus netStatus = [curReach currentReachabilityStatus];
+        
+        ALAlertBannerPosition position;
+        ALAlertBannerStyle randomStyle;
+        
+        switch (netStatus)
         {
-            NSLog(@"wi fi is not available");
-//            [self.networkAvailLabel setBackgroundColor:[UIColor redColor]];
-//            [self.networkAvailLabel setText:@"wifi is not available"];
-            
-            position = ALAlertBannerPositionTop;
-            randomStyle = ALAlertBannerStyleFailure;
-            UIView *view = [_navCtrl topViewController].view;
-            [[ALAlertBannerManager sharedManager] showAlertBannerInView:view style:randomStyle position:position title:@"Network Availability" subtitle:@"network is not available."];
+            case NotReachable:
+            {                
+                position = ALAlertBannerPositionTop;
+                randomStyle = ALAlertBannerStyleFailure;
+                UIView *view = [_navCtrl topViewController].view;
+                [[ALAlertBannerManager sharedManager] showAlertBannerInView:view style:randomStyle position:position title:@"Network Availability" subtitle:@"network is not available."];
+            }
+                break;
+            case ReachableViaWiFi:
+            {
+                position = ALAlertBannerPositionTop;
+                randomStyle = ALAlertBannerStyleSuccess;
+                UIView *view = [_navCtrl topViewController].view;
+                [[ALAlertBannerManager sharedManager] showAlertBannerInView:view style:randomStyle position:position title:@"Network Availability" subtitle:@"network is available."];
+            }
+                break;
+            case ReachableViaWWAN:
+                break;
+            default:
+                break;
         }
-            break;
-        case ReachableViaWiFi:
-        {
-            NSLog(@"reachable via wifi");
-//            [self.networkAvailLabel setBackgroundColor:[UIColor greenColor]];
-//            [self.networkAvailLabel setText:@"wifi is available"];
-            position = ALAlertBannerPositionTop;
-            randomStyle = ALAlertBannerStyleSuccess;
-            UIView *view = [_navCtrl topViewController].view;
-            [[ALAlertBannerManager sharedManager] showAlertBannerInView:view style:randomStyle position:position title:@"Network Availability" subtitle:@"network is available."];
-        }
-            break;
-        case ReachableViaWWAN:
-            NSLog(@"reachable iew wwam");
-//            [self.networkAvailLabel setBackgroundColor:[UIColor blueColor]];
-//            [self.networkAvailLabel setText:@"wifi is available"];
-            break;
-        default:
-            break;
+
     }
 }
 

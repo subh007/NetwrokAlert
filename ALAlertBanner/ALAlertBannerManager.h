@@ -27,6 +27,9 @@
 
 @interface ALAlertBannerManager : NSObject
 
+/**
+ * navCtrl used to retriece the top view controller and show AlAlertBanner on the view
+ */
 @property (nonatomic, weak) UINavigationController *navCtrl;
 
 
