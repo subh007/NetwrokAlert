@@ -24,7 +24,10 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     ViewController *vc = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.navCtrl = [[UINavigationController alloc]initWithRootViewController:vc];
+    
+    UINavigationController *tNavCtrl = [[UINavigationController alloc]initWithRootViewController:vc];
+    self.navCtrl = tNavCtrl;
+    [tNavCtrl release];
     
     // supply the navigation ctrl instance to the ALAlertBannerMgr
     // otherwise we can't see the alert notification on the UI.
