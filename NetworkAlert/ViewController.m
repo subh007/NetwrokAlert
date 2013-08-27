@@ -24,7 +24,7 @@
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self){
-        
+        self.title = @"Network Availbality Test";
     }
     return self;
 }
@@ -39,6 +39,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)pushNxtVC:(UIButton *)sender {
+    UIViewController *ctrl = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    [self.navigationController pushViewController:ctrl animated:YES];
+    [ctrl release];
 }
 
 @end
