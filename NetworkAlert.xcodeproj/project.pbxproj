@@ -88,9 +88,7 @@
 		172503C617CBE32800FF8F56 = {
 			isa = PBXGroup;
 			children = (
-				1725041617CC28DD00FF8F56 /* QuartzCore.framework */,
 				172503FD17CC28BF00FF8F56 /* ALAlertBanner */,
-				172503FB17CBE83400FF8F56 /* SystemConfiguration.framework */,
 				172503F517CBE3E700FF8F56 /* Reachability */,
 				172503D817CBE32800FF8F56 /* NetworkAlert */,
 				172503D117CBE32800FF8F56 /* Frameworks */,
@@ -109,6 +107,8 @@
 		172503D117CBE32800FF8F56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1725041617CC28DD00FF8F56 /* QuartzCore.framework */,
+				172503FB17CBE83400FF8F56 /* SystemConfiguration.framework */,
 				172503D217CBE32800FF8F56 /* UIKit.framework */,
 				172503D417CBE32800FF8F56 /* Foundation.framework */,
 				172503D617CBE32800FF8F56 /* CoreGraphics.framework */,
