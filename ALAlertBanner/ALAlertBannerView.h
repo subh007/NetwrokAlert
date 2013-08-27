@@ -62,7 +62,7 @@ typedef enum {
 @property (nonatomic, readonly) ALAlertBannerPosition position;
 @property (nonatomic, readonly) ALAlertBannerState state;
 
-@property (nonatomic, readonly) UIView *parentView;
+@property (nonatomic, readonly, strong) UIView *parentView;
 
 /**
  INTERNAL DETAILS BELOW.

@@ -62,12 +62,23 @@
 
 
 -(void)didRotate:(NSNotification *)note;
-
+-(void)showAlertBanner:(ALAlertBannerView*)alertBanner;
 @end
 
 @implementation ALAlertBannerManager
 
 @synthesize wifi = _wifi;
+@synthesize navCtrl = _navCtrl;
+@synthesize secondsToShow = _secondsToShow;
+@synthesize showAnimationDuration = _showAnimationDuration;
+@synthesize hideAnimationDuration = _hideAnimationDuration;
+@synthesize bannerOpacity = _bannerOpacity;
+@synthesize allowTapToDismiss = _allowTapToDismiss;
+
+@synthesize topPositionSemaphore = _topPositionSemaphore;
+@synthesize bottomPositionSemaphore = _bottomPositionSemaphore;
+@synthesize navBarPositionSemaphore = _navBarPositionSemaphore;
+@synthesize bannerViews = _bannerViews;
 
 +(ALAlertBannerManager *)sharedManager
 {

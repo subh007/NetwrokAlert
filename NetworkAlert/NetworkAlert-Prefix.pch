@@ -11,4 +11,12 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+#define NSTextAlignment UITextAlignment
+#define NSTextAlignmentRight UITextAlignmentRight
+#define NSTextAlignmentLeft UITextAlignmentLeft
+#define NSTextAlignmentCenter UITextAlignmentCenter
+#define NSLineBreakByWordWrapping UILineBreakModeWordWrap
+//#define NSLineBreakByTruncatingTail UILineBreakByTruncatingTail
+
 #endif

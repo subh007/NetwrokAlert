@@ -50,7 +50,7 @@
 #import <netinet/in.h>
 
 
-typedef enum : NSInteger {
+typedef enum{
 	NotReachable = 0,
 	ReachableViaWiFi,
 	ReachableViaWWAN
@@ -65,22 +65,22 @@ extern NSString *kReachabilityChangedNotification;
 /*!
  * Use to check the reachability of a given host name.
  */
-+ (instancetype)reachabilityWithHostName:(NSString *)hostName;
++ (Reachability *)reachabilityWithHostName:(NSString *)hostName;
 
 /*!
  * Use to check the reachability of a given IP address.
  */
-+ (instancetype)reachabilityWithAddress:(const struct sockaddr_in *)hostAddress;
++ (Reachability *)reachabilityWithAddress:(const struct sockaddr_in *)hostAddress;
 
 /*!
  * Checks whether the default route is available. Should be used by applications that do not connect to a particular host.
  */
-+ (instancetype)reachabilityForInternetConnection;
++ (Reachability *)reachabilityForInternetConnection;
 
 /*!
  * Checks whether a local WiFi connection is available.
  */
-+ (instancetype)reachabilityForLocalWiFi;
++ (Reachability *)reachabilityForLocalWiFi;
 
 /*!
  * Start listening for reachability notifications on the current run loop.

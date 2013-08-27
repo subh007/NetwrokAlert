@@ -60,8 +60,8 @@ static CGFloat const kRotationDurationIPad = 0.4f;
 @property (nonatomic, assign) ALAlertBannerPosition position;
 @property (nonatomic, assign) ALAlertBannerState state;
 
-@property (nonatomic) NSTimeInterval fadeInDuration;
-@property (nonatomic) NSTimeInterval fadeOutDuration;
+@property (nonatomic, assign) NSTimeInterval fadeInDuration;
+@property (nonatomic, assign) NSTimeInterval fadeOutDuration;
 
 @property (nonatomic, readonly) BOOL isAnimating;
 
@@ -69,12 +69,44 @@ static CGFloat const kRotationDurationIPad = 0.4f;
 @property (nonatomic, strong) UILabel *subtitleLabel;
 @property (nonatomic, strong) UIImageView *statusImageView;
 
-@property (nonatomic, weak) UIView *parentView;
-@property (nonatomic) CGRect parentFrameUponCreation;
+@property (nonatomic, strong) UIView *parentView;
+@property (nonatomic, assign) CGRect parentFrameUponCreation;
+
+-(void)commonInit;
+-(void)setInitialLayout;
 
 @end
 
 @implementation ALAlertBannerView
+
+@synthesize style = _style;
+@synthesize position = _position;
+@synthesize state = _state;
+@synthesize fadeInDuration = _fadeInDuration;
+@synthesize fadeOutDuration = _fadeOutDuration;
+@synthesize isAnimating = _isAnimating;
+@synthesize titleLabel = _titleLabel;
+@synthesize subtitleLabel = _subtitleLabel;
+@synthesize statusImageView = _statusImageView;
+@synthesize parentView = _parentView;
+@synthesize parentFrameUponCreation = _parentFrameUponCreation;
+
+
+//@synthesize style = _style, position = _position, state = _state, parentView = _parentView;
+
+/**
+ INTERNAL DETAILS BELOW.
+ 
+ Used by ALAlertBannerManager only. Every time you call one of them directly, I'll be forced to watch a Channing Tatum movie. Don't do that to me bro.
+ */
+
+@synthesize delegate = _delegate;
+@synthesize isScheduledToHide = _isScheduledToHide;
+@synthesize allowTapToDismiss = _allowTapToDismiss;
+@synthesize showShadow = _showShadow;
+@synthesize showAnimationDuration = _showAnimationDuration;
+@synthesize hideAnimationDuration = _hideAnimationDuration;
+@synthesize bannerOpacity = _bannerOpacity;
 
 - (id)init
 {
@@ -105,7 +137,8 @@ static CGFloat const kRotationDurationIPad = 0.4f;
     _titleLabel.textColor = [UIColor colorWithWhite:1.f alpha:0.9f];
     _titleLabel.textAlignment = NSTextAlignmentLeft;
     _titleLabel.numberOfLines = 1;
-    _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    _titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
+//    _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     _titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
     _titleLabel.layer.shadowOffset = CGSizeMake(0, -1);
     _titleLabel.layer.shadowOpacity = 0.3f;
