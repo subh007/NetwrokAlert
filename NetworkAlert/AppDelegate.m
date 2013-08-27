@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ALAlertBannerManager.h"
 #import "ViewController.h"
 
 @implementation AppDelegate
@@ -15,7 +15,7 @@
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    [_navCtrl release];
     [super dealloc];
 }
 
@@ -23,8 +23,12 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    ViewController *vc = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+    self.navCtrl = [[UINavigationController alloc]initWithRootViewController:vc];
+    
+    [ALAlertBannerManager sharedManager].navCtrl = self.navCtrl;
+    
+    self.window.rootViewController = self.navCtrl;
     [self.window makeKeyAndVisible];
     return YES;
 }
