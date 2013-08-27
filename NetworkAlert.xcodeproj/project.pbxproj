@@ -18,6 +18,8 @@
 		172503E917CBE32800FF8F56 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172503E817CBE32800FF8F56 /* Default-568h@2x.png */; };
 		172503EC17CBE32800FF8F56 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172503EB17CBE32800FF8F56 /* ViewController.m */; };
 		172503EF17CBE32800FF8F56 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172503ED17CBE32800FF8F56 /* ViewController.xib */; };
+		172503F817CBE3E700FF8F56 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 172503F717CBE3E700FF8F56 /* Reachability.m */; };
+		172503FC17CBE83400FF8F56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172503FB17CBE83400FF8F56 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		172503EA17CBE32800FF8F56 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		172503EB17CBE32800FF8F56 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		172503EE17CBE32800FF8F56 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		172503F617CBE3E700FF8F56 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		172503F717CBE3E700FF8F56 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		172503FB17CBE83400FF8F56 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172503FC17CBE83400FF8F56 /* SystemConfiguration.framework in Frameworks */,
 				172503D317CBE32800FF8F56 /* UIKit.framework in Frameworks */,
 				172503D517CBE32800FF8F56 /* Foundation.framework in Frameworks */,
 				172503D717CBE32800FF8F56 /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +62,8 @@
 		172503C617CBE32800FF8F56 = {
 			isa = PBXGroup;
 			children = (
+				172503FB17CBE83400FF8F56 /* SystemConfiguration.framework */,
+				172503F517CBE3E700FF8F56 /* Reachability */,
 				172503D817CBE32800FF8F56 /* NetworkAlert */,
 				172503D117CBE32800FF8F56 /* Frameworks */,
 				172503D017CBE32800FF8F56 /* Products */,
@@ -105,6 +113,15 @@
 				172503E817CBE32800FF8F56 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		172503F517CBE3E700FF8F56 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				172503F617CBE3E700FF8F56 /* Reachability.h */,
+				172503F717CBE3E700FF8F56 /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +193,7 @@
 				172503DF17CBE32800FF8F56 /* main.m in Sources */,
 				172503E317CBE32800FF8F56 /* AppDelegate.m in Sources */,
 				172503EC17CBE32800FF8F56 /* ViewController.m in Sources */,
+				172503F817CBE3E700FF8F56 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
