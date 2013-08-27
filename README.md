@@ -5,3 +5,5 @@ Simple way to show ALAlert to the whole application on change of network Connect
 
 used library:
 https://github.com/alobi/ALAlertBanner 
+
+[!ScreenShot](https://dl.dropboxusercontent.com/u/32437361/connected_notif.png)
