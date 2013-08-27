@@ -104,7 +104,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
         
         /// initialize the reachability module
-        _wifi = [Reachability reachabilityForLocalWiFi];
+        self.wifi = [Reachability reachabilityForLocalWiFi];
         [_wifi startNotifier];
         
         // register to receive the notification
