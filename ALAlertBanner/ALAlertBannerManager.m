@@ -34,6 +34,8 @@
 @property (nonatomic, strong) NSMutableArray *alertBanners;
 @end
 
+static ALAlertBannerManager *sharedManager = nil;
+
 @implementation UIView (Convenience)
 @dynamic alertBanners;
 -(void)setAlertBanners:(NSMutableArray *)alertBanners
@@ -71,7 +73,6 @@
 
 +(ALAlertBannerManager *)sharedManager
 {
-    static ALAlertBannerManager *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedManager = [[ALAlertBannerManager alloc] init];
@@ -364,7 +365,11 @@
 }
 
 
+
 #pragma mark -
++(void)cleanupALAlertBannerMgr{
+    sharedManager = nil;
+}
 
 -(void)dealloc
 {

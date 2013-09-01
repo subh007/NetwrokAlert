@@ -83,4 +83,9 @@
  */
 -(void)hideAlertBannersInView:(UIView*)view;
 
+/**
+ Stop the notification for the network connectivity. (deregistration)
+ */
++(void)cleanupALAlertBannerMgr;
+
 @end

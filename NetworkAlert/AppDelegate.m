@@ -32,6 +32,10 @@
     // supply the navigation ctrl instance to the ALAlertBannerMgr
     // otherwise we can't see the alert notification on the UI.
     [ALAlertBannerManager sharedManager].navCtrl = self.navCtrl;
+#ifdef TEST_CLEANUP_ALALERTBANNER
+    [ALAlertBannerManager cleanupALAlertBannerMgr];
+#endif
+    
     
     self.window.rootViewController = self.navCtrl;
     [self.window makeKeyAndVisible];
